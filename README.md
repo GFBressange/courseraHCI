@@ -5,7 +5,7 @@
 
 This README.md first cites sources of the data (Source, Data Set Information, Citation Request, ttribute Information).
 
-Finally, it described the modifications done to answer the programm assignement.
+Finally, it described the modifications done to answer the program assignement.
 
 ##Source:
 
@@ -44,13 +44,12 @@ For each record in the dataset it is provided:
 
 ## Modifications
 The original files we use are:
-    For the test set:
-    subject_test.txt (Ids of subjects), Y_test.txt (Ids of Activities) and X_test.txt (Measurements)
-    For the train set:
+- For the test set: subject_test.txt (Ids of subjects), Y_test.txt (Ids of Activities) and X_test.txt (Measurements)
+- For the train set:
     subject_train.txt (Ids of subjects), Y_train.txt (Ids of Activities) and X_train.txt (Measurements)
     
 The script run._analysis.R perfomrs the following transformations:
-- read and merge these file in one data frame named "dataset". 
-- Subsetting this dataset by keeping only the varaibles involving mean() or std(). This dataset has 10299 observations of 88 variables. The name of this subset is still "dataset".
-- renames the 88 variables to be more descriptive (see the CodeBook.md). The variable 1 is "Subject". The variable 2 is "Acitivity". The following 86 variables are measurements variables.
+- read and merge these files in one data frame named "dataset". 
+- Subsetting this dataset by keeping only the variables involving mean() or std(). This dataset has 10299 observations of 88 variables. The name of this subset is still "dataset".
+- renames the 88 variables to be more descriptive (see the CodeBook.md). The variable 1 is "Subject". The variable 2 is "Acitivity". The other 86 variables are measurements variables.
 - creates a second data frame named "tidydataset" summarizing the mean of each of the 86 measurements variables along the 10299 observations for each subject and each activity. There are 30 subjects and 6 activities so the tidydataset contains 180 rows along 88 variables.
