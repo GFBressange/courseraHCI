@@ -55,20 +55,21 @@ levels(dataset$Activity) <- listActivities # change factor levels names of the A
 ## renaming the measurements variables with descriptive names
 colnames(dataset) <- gsub("^t", "time.domain.signal.",colnames(dataset))
 colnames(dataset) <- gsub("^f", "frequency.domain.signal.",colnames(dataset))
-colnames(dataset) <- gsub("Acc", ".acceleration.",colnames(dataset))
+colnames(dataset) <- gsub("Acc", ".acceleration",colnames(dataset))
 colnames(dataset) <- gsub("-X", ".along.X.direction",colnames(dataset))
 colnames(dataset) <- gsub("-Y", ".along.Y.direction",colnames(dataset))
 colnames(dataset) <- gsub("-Y", ".along.Z.direction",colnames(dataset))
 colnames(dataset) <- gsub("-meanFreq", ".mean.frequency",colnames(dataset))
 colnames(dataset) <- gsub("gravityMean", "gravity.mean",colnames(dataset))
-colnames(dataset) <- gsub("JerkMean", "noise.mean",colnames(dataset))
+colnames(dataset) <- gsub("JerkMean", ".noise.mean",colnames(dataset))
 colnames(dataset) <- gsub("-mean", ".mean",colnames(dataset))
 colnames(dataset) <- gsub("-std", ".standard.deviation",colnames(dataset))
 colnames(dataset) <- gsub("Gyro", ".gyroscopic",colnames(dataset))
 colnames(dataset) <- gsub("Mag", "magnitude",colnames(dataset))
 colnames(dataset) <- gsub("BodyBody", "body.to.body",colnames(dataset))
 colnames(dataset) <- gsub("tBody", "time.domain.signal.body",colnames(dataset))
-
+colnames(dataset) <- gsub("Jerk", ".noise",colnames(dataset))
+colnames(dataset) <- gsub("Mean", ".mean",colnames(dataset))
 
 ## Creating a second independent tidy data set with the average of each variable for each activity 
 ## and each subject
