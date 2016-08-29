@@ -88,7 +88,9 @@ Listing and names of the measurements variables with there new names (only those
 [53] "frequency.domain.signal.Body.acceleration.noise.mean().along.Y.direction"              
 [54] "frequency.domain.signal.Body.acceleration.noise.mean()-Z"                              
 [55] "frequency.domain.signal.Body.acceleration.noise.standard.deviation().along.X.direction"
+
 [56] "frequency.domain.signal.Body.acceleration.noise.standard.deviation().along.Y.direction"
+
 [57] "frequency.domain.signal.Body.acceleration.noise.standard.deviation()-Z"                
 [58] "frequency.domain.signal.Body.acceleration.noise.mean.frequency().along.X.direction"    
 [59] "frequency.domain.signal.Body.acceleration.noise.mean.frequency().along.Y.direction"    
@@ -107,6 +109,7 @@ Listing and names of the measurements variables with there new names (only those
 [72] "frequency.domain.signal.Body.accelerationmagnitude.mean.frequency()"                   
 [73] "frequency.domain.signal.body.to.body.acceleration.noisemagnitude.mean()"               
 [74] "frequency.domain.signal.body.to.body.acceleration.noisemagnitude.standard.deviation()" 
+
 [75] "frequency.domain.signal.body.to.body.acceleration.noisemagnitude.mean.frequency()"     
 [76] "frequency.domain.signal.body.to.body.gyroscopicmagnitude.mean()"                       
 [77] "frequency.domain.signal.body.to.body.gyroscopicmagnitude.standard.deviation()"         
