@@ -25,32 +25,28 @@ dataset <- rbind(datatest, datatrain)
 variablesNames <- read.table("features.txt", header = FALSE, sep = " ", stringsAsFactors = FALSE)
 
 ## Attributing names to variables
-## It would be better to keep the measurements variables from 1 to 561 and push
-## Subject and Activity variables at the end: 562 and 563
 colnames(dataset) <- c("Subject", "Activity", variablesNames[, 2])
 
-## Subsetting only the measurements on the mean and standard deviation for each measurement
-list <- colnames(dataset)               # search for the variables whose names contains Mean, mean
-good <- grep("[Mm]ean|[Ss]td",list)     # or Std, std.
+## Subsetting only the measurements on the mean and standard deviation 
+## for each measurement. Search for the variables whose names contains Mean, mean 
+## or Std, std.
+list <- colnames(dataset)               
+good <- grep("[Mm]ean|[Ss]td",list)     
 listgood <- list[good]
-dataset <- dataset[ ,c("Subject", "Activity", listgood)]        # subsetting keeping only mean and 
-                                                                # standard deviation variables
 
-## reading activity labels
-activityLabels <- read.csv("activity_labels.txt", header = FALSE)
+## subsetting keeping only mean and standard deviation variables
+dataset <- dataset[ ,c("Subject", "Activity", listgood)] 
 
-dataset$Activity <- as.factor(dataset$Activity) # transform Activity variable as a factor
-# may be better:
-# dataset <- transform(dataset, Activity = factor(Activity))
-temp <- read.csv("activity_labels.txt", header = FALSE, sep = " ")
-#definin newg activities names
-temp$ActivityName <- c("Walking", "Walking.Up", "Walking.Down", "Sitting", "Standing"
-                       , "Laying")
+## renaming activities variables
+dataset[,2] <- gsub("1", "Walking", dataset[,2])
+dataset[,2] <- gsub("2", "Walking.Up", dataset[,2])
+dataset[,2] <- gsub("3", "Walking.Down", dataset[,2])
+dataset[,2] <- gsub("4", "Sitting", dataset[,2])
+dataset[,2] <- gsub("5", "Standing", dataset[,2])
+dataset[,2] <- gsub("6", "Laying", dataset[,2])
 
-## Attributing names to Activities
-colnames(temp) <- c("Activity.Id", "Activity.Name")
-listActivities <- temp$Activity.Name
-levels(dataset$Activity) <- listActivities # change factor levels names of the Activity factor
+## transform Activity variable as a factor
+dataset$Activity <- as.factor(dataset$Activity) 
 
 ## renaming the measurements variables with descriptive names
 colnames(dataset) <- gsub("^t", "time.domain.signal.",colnames(dataset))
